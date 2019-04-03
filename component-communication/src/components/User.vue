@@ -10,12 +10,21 @@
                 <!-- Use the colon here to bind to the name attribute below -->
                 <!-- Otherwise, it just interprets it as a string -->
                 <!-- Also needs to match the prop in the array in the child component -->
-                <app-user-detail :name="name" @nameWasReset="name = $event"></app-user-detail>
+                <app-user-detail 
+                    :name="name" 
+                    @nameWasReset="name = 
+                    $event"
+                    :resetFn="resetName"
+                    :userAge="age">
+                </app-user-detail>
                 <!-- The @nameWasReset is like v-on -->
                 <!-- $event is the event that was sent with the emit event -->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit 
+                    :userAge="age"
+                    @ageWasEdited="age = $event">
+                </app-user-edit>
             </div>
         </div>
     </div>
@@ -28,7 +37,8 @@
     export default {
         data: function() {
             return {
-                name: 'Sarah'
+                name: 'Sarah',
+                age: 36
             }
         },
         components: {
@@ -38,6 +48,9 @@
         methods: {
             changeName() {
                 this.name = "Blorg"
+            },
+            resetName() {
+                this.name = "Sarah"
             }
         }
     }
