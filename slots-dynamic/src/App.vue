@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <br>
-                <button class="btn btn-primary">Load Blue Template</button>
-                <button class="btn btn-success">Load Green Template</button>
-                <button class="btn btn-danger">Load Red Template</button>
+                <button @click="whichButton = 'app-blue'" class="btn btn-primary">Load Blue Template</button>
+                <button @click="whichButton = 'app-green'" class="btn btn-success">Load Green Template</button>
+                <button @click="whichButton = 'app-red'" class="btn btn-danger">Load Red Template</button>
                 <hr>
-                <app-blue></app-blue>
-                <app-green></app-green>
-                <app-red></app-red>
+                <component :is="whichButton">
+                    <h1 slot="stuffAndThings">Stuff in here!</h1>
+                </component>
             </div>
         </div>
     </div>
@@ -21,6 +21,11 @@
     import Red from './components/Red.vue';
 
     export default {
+        data: function() {
+            return {
+                whichButton: null
+            }
+        },
         components: {
             appBlue: Blue,
             appGreen: Green,
