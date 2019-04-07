@@ -43,20 +43,24 @@
                     </div>
                     <div class="form-group">
                         <p>Store your data?</p>
-                        <label for="data-yes">Yes</label>
-                        <input 
+                        <label for="data-yes">
+                            <input 
                             type="radio"
                             class="form-control"
                             id="data-yes"
                             value="Yes"
-                            v-model="dataSave">
-                        <label for="data-no">No</label>
-                        <input 
+                            v-model="dataSave">Yes
+                        </label>
+                        
+                        <label for="data-no">
+                            <input 
                             type="radio"
                             class="form-control"
                             id="data-no"
                             value="No"
-                            v-model="dataSave">
+                            v-model="dataSave">No
+                        </label>
+                        
                     </div>
                     <div class="form-group">
                         <button 
